@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "rclient",
+	"version": "${version}",
+	"name": "RClient",
+	"description": "Client-side visuals and cosmetics only. No gameplay advantage.",
+	"authors": ["RClient"],
+	"license": "MIT",
+	"icon": "assets/rclient/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": ["dev.rclient.RClient"]
+	},
+	"mixins": [
+		{ "config": "rclient.client.mixins.json", "environment": "client" }
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

@@ -1,0 +1,384 @@
+== matching classes ==
+net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer
+net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry
+net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap
+net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry
+net.fabricmc.fabric.api.client.rendering.v1.FabricRenderPipeline
+net.fabricmc.fabric.api.client.rendering.v1.FabricRenderState
+net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
+net.fabricmc.fabric.api.client.rendering.v1.InvalidateRenderStateCallback
+net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRenderEvents
+net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback
+net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey
+net.fabricmc.fabric.api.client.rendering.v1.SpecialBlockRendererRegistry
+net.fabricmc.fabric.api.client.rendering.v1.world.AbstractWorldRenderContext
+net.fabricmc.fabric.api.client.rendering.v1.world.WorldExtractionContext
+net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderContext
+net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderEvents
+net.fabricmc.fabric.api.client.rendering.v1.world.WorldTerrainRenderContext
+net.minecraft.client.Camera
+net.minecraft.client.model.player.PlayerModel
+net.minecraft.client.renderer.entity.state.AvatarRenderState
+net.minecraft.client.renderer.rendertype.RenderType
+net.minecraft.client.renderer.rendertype.RenderTypes
+net.minecraft.client.renderer.state.CameraRenderState
+net.minecraft.client.renderer.state.LevelRenderState
+
+== net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer ==
+extends null
+  M public static transient void register(Factory, ItemLike[])
+  M public static transient void register(ArmorRenderer, ItemLike[])
+  M public abstract void render(PoseStack, SubmitNodeCollector, ItemStack, HumanoidRenderState, EquipmentSlot, int, HumanoidModel)
+  M public static void submitTransformCopyingModel(Model, Object, Model, Object, boolean, OrderedSubmitNodeCollector, PoseStack, RenderType, int, int, int, CrumblingOverlay)
+  M public static void submitTransformCopyingModel(Model, Object, Model, Object, boolean, OrderedSubmitNodeCollector, PoseStack, RenderType, int, int, int, TextureAtlasSprite, int, CrumblingOverlay)
+  M public boolean shouldRenderDefaultHeadItem(LivingEntity, ItemStack)
+
+== net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry ==
+extends java.lang.Object
+  M public static void register(BlockEntityType, BlockEntityRendererProvider)
+
+== net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap ==
+extends java.lang.Object
+  M public static transient void putBlocks(ChunkSectionLayer, Block[])
+  M public static void putBlock(Block, ChunkSectionLayer)
+  M public static void putFluid(Fluid, ChunkSectionLayer)
+  M public static transient void putFluids(ChunkSectionLayer, Fluid[])
+
+== net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry ==
+extends java.lang.Object
+  M public static void register(EntityType, EntityRendererProvider)
+
+== net.fabricmc.fabric.api.client.rendering.v1.FabricRenderPipeline ==
+extends null
+  M public boolean usePipelineDrawModeForGui()
+
+== net.fabricmc.fabric.api.client.rendering.v1.FabricRenderState ==
+extends null
+  M public Object getData(RenderStateDataKey)
+  M public void setData(RenderStateDataKey, Object)
+  M public void clearExtraData()
+  M public Object getDataOrDefault(RenderStateDataKey, Object)
+
+== net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback ==
+extends null
+  F public static final Event EVENT
+  M public abstract void onHudRender(GuiGraphics, DeltaTracker)
+
+== net.fabricmc.fabric.api.client.rendering.v1.InvalidateRenderStateCallback ==
+extends null
+  F public static final Event EVENT
+  M public abstract void onInvalidate()
+
+== net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRenderEvents ==
+extends java.lang.Object
+  F public static final Event ALLOW_CAPE_RENDER
+
+== net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback ==
+extends null
+  F public static final Event EVENT
+  M public abstract void registerRenderers(EntityType, LivingEntityRenderer, RegistrationHelper, Context)
+
+== net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey ==
+extends java.lang.Object
+  F private final Supplier name
+  M public String toString()
+  M public static RenderStateDataKey create()
+  M public static RenderStateDataKey create(Supplier)
+
+== net.fabricmc.fabric.api.client.rendering.v1.SpecialBlockRendererRegistry ==
+extends java.lang.Object
+  M public static void register(Block, Unbaked)
+
+== net.fabricmc.fabric.api.client.rendering.v1.world.AbstractWorldRenderContext ==
+extends null
+  M public abstract LevelRenderer worldRenderer()
+  M public abstract GameRenderer gameRenderer()
+  M public abstract LevelRenderState worldState()
+
+== net.fabricmc.fabric.api.client.rendering.v1.world.WorldExtractionContext ==
+extends null
+  M public abstract Frustum frustum()
+  M public abstract ClientLevel world()
+  M public abstract Matrix4fc viewMatrix()
+  M public abstract DeltaTracker tickCounter()
+  M public abstract Camera camera()
+  M public abstract Matrix4fc cullProjectionMatrix()
+  M public abstract boolean blockOutlines()
+
+== net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderContext ==
+extends null
+  M public abstract MultiBufferSource consumers()
+  M public abstract PoseStack matrices()
+  M public abstract SubmitNodeCollector commandQueue()
+
+== net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderEvents ==
+extends java.lang.Object
+  F public static final Event AFTER_BLOCK_OUTLINE_EXTRACTION
+  F public static final Event END_EXTRACTION
+  F public static final Event START_MAIN
+  F public static final Event BEFORE_ENTITIES
+  F public static final Event AFTER_ENTITIES
+  F public static final Event BEFORE_DEBUG_RENDER
+  F public static final Event BEFORE_TRANSLUCENT
+  F public static final Event BEFORE_BLOCK_OUTLINE
+  F public static final Event END_MAIN
+
+== net.fabricmc.fabric.api.client.rendering.v1.world.WorldTerrainRenderContext ==
+extends null
+  M public abstract ChunkSectionsToRender sectionState()
+
+== net.minecraft.client.Camera ==
+extends java.lang.Object
+  F private static final float DEFAULT_CAMERA_DISTANCE
+  F private static final Vector3f FORWARDS
+  F private static final Vector3f UP
+  F private static final Vector3f LEFT
+  F private boolean initialized
+  F private Level level
+  F private Entity entity
+  F private Vec3 position
+  F private final MutableBlockPos blockPosition
+  F private final Vector3f forwards
+  F private final Vector3f up
+  F private final Vector3f left
+  F private float xRot
+  F private float yRot
+  F private final Quaternionf rotation
+  F private boolean detached
+  F private float eyeHeight
+  F private float eyeHeightOld
+  F private float partialTickTime
+  F private final EnvironmentAttributeProbe attributeProbe
+  M public void reset()
+  M public Vec3 position()
+  M public void setup(Level, Entity, boolean, boolean, float)
+  M public boolean isInitialized()
+  M protected void move(float, float, float)
+  M public void tick()
+  M protected void setPosition(double, double, double)
+  M protected void setPosition(Vec3)
+  M public Entity entity()
+  M protected void setRotation(float, float)
+  M public boolean isDetached()
+  M public float xRot()
+  M public float yRot()
+  M public Quaternionf rotation()
+  M public Vector3fc upVector()
+  M private float getMaxZoom(float)
+  M public Vector3fc leftVector()
+  M public BlockPos blockPosition()
+  M public float yaw()
+  M public float getPartialTickTime()
+  M public Vector3fc forwardVector()
+  M public EnvironmentAttributeProbe attributeProbe()
+  M public FogType getFluidInCamera()
+  M public NearPlane getNearPlane()
+
+== net.minecraft.client.model.player.PlayerModel ==
+extends net.minecraft.client.model.HumanoidModel
+  F protected static final String LEFT_SLEEVE
+  F protected static final String RIGHT_SLEEVE
+  F protected static final String LEFT_PANTS
+  F protected static final String RIGHT_PANTS
+  F private final List bodyParts
+  F public final ModelPart leftSleeve
+  F public final ModelPart rightSleeve
+  F public final ModelPart leftPants
+  F public final ModelPart rightPants
+  F public final ModelPart jacket
+  F private final boolean slim
+  M public void setAllVisible(boolean)
+  M public static ArmorModelSet createArmorMeshSet(CubeDeformation, CubeDeformation)
+  M public void translateToHand(AvatarRenderState, HumanoidArm, PoseStack)
+  M public void setupAnim(AvatarRenderState)
+  M public static MeshDefinition createMesh(CubeDeformation, boolean)
+  M public ModelPart getRandomBodyPart(RandomSource)
+
+== net.minecraft.client.renderer.entity.state.AvatarRenderState ==
+extends net.minecraft.client.renderer.entity.state.HumanoidRenderState
+  F public PlayerSkin skin
+  F public float capeFlap
+  F public float capeLean
+  F public float capeLean2
+  F public int arrowCount
+  F public int stingerCount
+  F public boolean isSpectator
+  F public boolean showHat
+  F public boolean showJacket
+  F public boolean showLeftPants
+  F public boolean showRightPants
+  F public boolean showLeftSleeve
+  F public boolean showRightSleeve
+  F public boolean showCape
+  F public float fallFlyingTimeInTicks
+  F public boolean shouldApplyFlyingYRot
+  F public float flyingYRot
+  F public Component scoreText
+  F public Variant parrotOnLeftShoulder
+  F public Variant parrotOnRightShoulder
+  F public int id
+  F public boolean showExtraEars
+  F public final ItemStackRenderState heldOnHead
+  M public float fallFlyingScale()
+
+== net.minecraft.client.renderer.rendertype.RenderType ==
+extends java.lang.Object
+  F private static final int MEGABYTE
+  F public static final int BIG_BUFFER_SIZE
+  F public static final int SMALL_BUFFER_SIZE
+  F public static final int TRANSIENT_BUFFER_SIZE
+  F private final RenderSetup state
+  F private final Optional outline
+  F protected final String name
+  M public Mode mode()
+  M public String toString()
+  M public VertexFormat format()
+  M public static RenderType create(String, RenderSetup)
+  M public int bufferSize()
+  M public RenderPipeline pipeline()
+  M public boolean sortOnUpload()
+  M public boolean affectsCrumbling()
+  M public void draw(MeshData)
+  M public boolean isOutline()
+  M public Optional outline()
+  M public boolean canConsolidateConsecutiveGeometry()
+
+== net.minecraft.client.renderer.rendertype.RenderTypes ==
+extends java.lang.Object
+  F static final BiFunction OUTLINE
+  F public static final Supplier MOVING_BLOCK_SAMPLER
+  F private static final RenderType SOLID_MOVING_BLOCK
+  F private static final RenderType CUTOUT_MOVING_BLOCK
+  F private static final RenderType TRANSLUCENT_MOVING_BLOCK
+  F private static final Function ARMOR_CUTOUT_NO_CULL
+  F private static final Function ARMOR_TRANSLUCENT
+  F private static final Function ENTITY_SOLID
+  F private static final Function ENTITY_SOLID_Z_OFFSET_FORWARD
+  F private static final Function ENTITY_CUTOUT
+  F private static final BiFunction ENTITY_CUTOUT_NO_CULL
+  F private static final BiFunction ENTITY_CUTOUT_NO_CULL_Z_OFFSET
+  F private static final Function ITEM_ENTITY_TRANSLUCENT_CULL
+  F private static final BiFunction ENTITY_TRANSLUCENT
+  F private static final BiFunction ENTITY_TRANSLUCENT_EMISSIVE
+  F private static final Function ENTITY_SMOOTH_CUTOUT
+  F private static final BiFunction BEACON_BEAM
+  F private static final Function ENTITY_DECAL
+  F private static final Function ENTITY_NO_OUTLINE
+  F private static final Function ENTITY_SHADOW
+  F private static final Function DRAGON_EXPLOSION_ALPHA
+  F private static final Function EYES
+  F private static final RenderType LEASH
+  F private static final RenderType WATER_MASK
+  F private static final RenderType ARMOR_ENTITY_GLINT
+  F private static final RenderType GLINT_TRANSLUCENT
+  F private static final RenderType GLINT
+  F private static final RenderType ENTITY_GLINT
+  F private static final Function CRUMBLING
+  F private static final Function TEXT
+  F private static final RenderType TEXT_BACKGROUND
+  F private static final Function TEXT_INTENSITY
+  F private static final Function TEXT_POLYGON_OFFSET
+  F private static final Function TEXT_INTENSITY_POLYGON_OFFSET
+  F private static final Function TEXT_SEE_THROUGH
+  F private static final RenderType TEXT_BACKGROUND_SEE_THROUGH
+  F private static final Function TEXT_INTENSITY_SEE_THROUGH
+  F private static final RenderType LIGHTNING
+  F private static final RenderType DRAGON_RAYS
+  F private static final RenderType DRAGON_RAYS_DEPTH
+  F private static final RenderType TRIPWIRE_MOVING_BLOCk
+  F private static final RenderType END_PORTAL
+  F private static final RenderType END_GATEWAY
+  F public static final RenderType LINES
+  F public static final RenderType LINES_TRANSLUCENT
+  F public static final RenderType SECONDARY_BLOCK_OUTLINE
+  F private static final RenderType DEBUG_FILLED_BOX
+  F private static final RenderType DEBUG_POINT
+  F private static final RenderType DEBUG_QUADS
+  F private static final RenderType DEBUG_TRIANGLE_FAN
+  F private static final Function WEATHER_DEPTH_WRITE
+  F private static final Function WEATHER_NO_DEPTH_WRITE
+  F private static final Function BLOCK_SCREEN_EFFECT
+  F private static final Function FIRE_SCREEN_EFFECT
+  M public static RenderType lines()
+  M public static RenderType text(Identifier)
+  M public static RenderType entityCutoutNoCull(Identifier)
+  M public static RenderType entityCutoutNoCull(Identifier, boolean)
+  M public static RenderType outline(Identifier)
+  M public static RenderType waterMask()
+  M public static RenderType glint()
+  M public static RenderType endGateway()
+  M public static RenderType endPortal()
+  M public static RenderType weather(Identifier, boolean)
+  M public static RenderType leash()
+  M public static RenderType eyes(Identifier)
+  M public static RenderType entitySolid(Identifier)
+  M public static RenderType entityTranslucent(Identifier)
+  M public static RenderType entityTranslucent(Identifier, boolean)
+  M public static RenderType itemEntityTranslucentCull(Identifier)
+  M public static RenderType armorCutoutNoCull(Identifier)
+  M public static RenderType armorEntityGlint()
+  M public static RenderType secondaryBlockOutline()
+  M public static RenderType solidMovingBlock()
+  M public static RenderType glintTranslucent()
+  M public static RenderType entityGlint()
+  M public static RenderType createArmorDecalCutoutNoCull(Identifier)
+  M public static RenderType dragonRaysDepth()
+  M public static RenderType debugTriangleFan()
+  M public static RenderType linesTranslucent()
+  M public static RenderType cutoutMovingBlock()
+  M public static RenderType entityNoOutline(Identifier)
+  M public static RenderType entityCutout(Identifier)
+  M public static RenderType textBackground()
+  M public static RenderType textIntensityPolygonOffset(Identifier)
+  M public static RenderType debugFilledBox()
+  M public static RenderType textIntensity(Identifier)
+  M public static RenderType entityTranslucentEmissive(Identifier)
+  M public static RenderType entityTranslucentEmissive(Identifier, boolean)
+  M public static RenderType entityCutoutNoCullZOffset(Identifier)
+  M public static RenderType entityCutoutNoCullZOffset(Identifier, boolean)
+  M public static RenderType armorTranslucent(Identifier)
+  M public static RenderType entitySolidZOffsetForward(Identifier)
+  M public static RenderType entitySmoothCutout(Identifier)
+  M public static RenderType translucentMovingBlock()
+  M public static RenderType entityDecal(Identifier)
+  M public static RenderType textSeeThrough(Identifier)
+  M public static RenderType energySwirl(Identifier, float, float)
+  M public static RenderType entityShadow(Identifier)
+  M public static RenderType dragonExplosionAlpha(Identifier)
+  M public static RenderType textBackgroundSeeThrough()
+  M public static RenderType tripwireMovingBlock()
+  M private static Function createWeather(RenderPipeline)
+  M public static RenderType textPolygonOffset(Identifier)
+  M public static RenderType textIntensitySeeThrough(Identifier)
+  M public static RenderType breezeWind(Identifier, float, float)
+  M public static RenderType crumbling(Identifier)
+  M public static RenderType debugQuads()
+  M public static RenderType dragonRays()
+  M public static RenderType debugPoint()
+  M public static RenderType lightning()
+  M public static RenderType breezeEyes(Identifier)
+  M public static RenderType beaconBeam(Identifier, boolean)
+  M public static RenderType blockScreenEffect(Identifier)
+  M public static RenderType fireScreenEffect(Identifier)
+
+== net.minecraft.client.renderer.state.CameraRenderState ==
+extends java.lang.Object
+  F public BlockPos blockPos
+  F public Vec3 pos
+  F public boolean initialized
+  F public Vec3 entityPos
+  F public Quaternionf orientation
+
+== net.minecraft.client.renderer.state.LevelRenderState ==
+extends java.lang.Object
+  F public CameraRenderState cameraRenderState
+  F public final List entityRenderStates
+  F public final List blockEntityRenderStates
+  F public boolean haveGlowingEntities
+  F public BlockOutlineRenderState blockOutlineRenderState
+  F public final List blockBreakingRenderStates
+  F public final WeatherRenderState weatherRenderState
+  F public final WorldBorderRenderState worldBorderRenderState
+  F public final SkyRenderState skyRenderState
+  F public long gameTime
+  M public void reset()
